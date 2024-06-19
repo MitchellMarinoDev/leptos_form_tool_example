@@ -1,4 +1,7 @@
-use crate::error_template::{AppError, ErrorTemplate};
+use crate::{
+    error_template::{AppError, ErrorTemplate},
+    hello_world_page::HelloWorldFormPage,
+};
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
@@ -14,7 +17,7 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/leptos_form_tool_example.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Leptos Form Tool Example"/>
 
         // content for this welcome page
         <Router fallback=|| {
@@ -27,7 +30,8 @@ pub fn App() -> impl IntoView {
         }>
             <main>
                 <Routes>
-                    <Route path="" view=HomePage/>
+                    <Route path="/" view=HomePage/>
+                    <Route path="/hello_world" view=HelloWorldFormPage/>
                 </Routes>
             </main>
         </Router>
@@ -37,12 +41,8 @@ pub fn App() -> impl IntoView {
 /// Renders the home page of your application.
 #[component]
 fn HomePage() -> impl IntoView {
-    // Creates a reactive value to update the button
-    let (count, set_count) = create_signal(0);
-    let on_click = move |_| set_count.update(|count| *count += 1);
-
     view! {
-        <h1>"Welcome to Leptos!"</h1>
-        <button on:click=on_click>"Click Me: " {count}</button>
+        <h1>"Leptos Form Tool Examples"</h1>
+        <A href="/hello_world"> "Hello World Example" </A>
     }
 }

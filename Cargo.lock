@@ -914,6 +914,7 @@ dependencies = [
  "leptos_form_tool",
  "leptos_meta",
  "leptos_router",
+ "serde",
  "thiserror",
  "tokio",
  "tower",

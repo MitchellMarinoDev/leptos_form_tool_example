@@ -21,6 +21,7 @@ thiserror = "1"
 tracing = { version = "0.1", optional = true }
 http = "1"
 leptos_form_tool = "0.1.0"
+serde = { version = "1.0.203", features = ["derive"] }
 
 [features]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
