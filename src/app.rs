@@ -1,3 +1,4 @@
+use crate::form_tool::HelloWorldFormPage;
 use leptos::prelude::*;
 use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
 use leptos_router::{
@@ -34,13 +35,13 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/leptos_form_tool_example.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Leptos Form Tool Example"/>
 
         // content for this welcome page
         <Router>
             <main>
                 <Routes fallback=|| "Page not found.".into_view()>
-                    <Route path=StaticSegment("") view=HomePage/>
+                    <Route path=StaticSegment("") view=HelloWorldFormPage/>
                 </Routes>
             </main>
         </Router>
@@ -49,13 +50,4 @@ pub fn App() -> impl IntoView {
 
 /// Renders the home page of your application.
 #[component]
-fn HomePage() -> impl IntoView {
-    // Creates a reactive value to update the button
-    let count = RwSignal::new(0);
-    let on_click = move |_| *count.write() += 1;
-
-    view! {
-        <h1>"Welcome to Leptos!"</h1>
-        <button on:click=on_click>"Click Me: " {count}</button>
-    }
-}
+fn HomePage() -> impl IntoView {}
